@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<link href="../assets/improvi-slack-chat-ab8d216/css/demo.css" rel="stylesheet" type="text/css" />
+	<link href="../assets/improvi-slack-chat-ab8d216/css/slack-chat.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+    <a href="{% url 'secondview' %}"> link to second page </a>
+    <button onclick="fun()">button</button>
+
+    <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/improvi-slack-chat-ab8d216/js/moment.js" type="text/javascript"></script>
+    <script src="../assets/improvi-slack-chat-ab8d216/js/slack-chat.js" type="text/javascript"></script>
+    <script src="../assets/improvi-slack-chat-ab8d216/js/slack-chat.min.js" type="text/javascript"></script>
+    <script>
+    	function fun(){
+    		var slackChatOptions = {
+                apiToken: 'xoxp-46864762278-46901786421-50071487873-27b292748e',       //#Slack Auth token. Required. 
+                channelId: 'C1CRTRJRF',      //#Slack channel ID. Required.
+                user: 'buddhi_prakash',           //name of the user. Required.
+                userLink: '',       //link to the user in the application - shown in #Slack
+                userImg: '',        //image of the user
+                userId: '',         //id of the user in the application
+                sysImg: '',         //image to show when the support team replies
+                sysUser: 'support',                //Required.   
+                queryInterval: 3000,
+                chatBoxHeader: "Need help? Talk to our support team right here",
+                slackColor: "#36a64f",
+                messageFetchCount: 100,
+                botUser: 'slackbot',        //username to post to #Slack. Required.
+                sendOnEnter: true,
+                disableIfAway: false,
+                elementToDisable: null,
+                heightOffset: 75,
+                debug: false,
+                webCache: false,
+                privateChannel: false,
+				serverApiGateway: '../assets/server/php/server.php' 
+}
+    		$("button").slackChat(slackChatOptions);
+    	}
+    </script>
+</body>
+    

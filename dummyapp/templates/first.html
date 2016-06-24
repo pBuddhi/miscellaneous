@@ -1,0 +1,51 @@
+<html>
+<head>
+	<!-- Start of Woopra Code -->
+<script>
+(function(){
+        var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call","trackForm","trackClick"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
+})("woopra");
+
+woopra.config({
+    domain: 'my-honeymoon.com'
+});
+//woopra.track();
+woopra.call("trackForm", "Register", "#registration", {
+  exclude: ["secret"]
+});
+
+// document.getElementsByTagName("button").onclick = function() {
+// 	console.log("chal gyaa");
+//     // woopra.track("play", {
+//     //     artist: document.getElementById("art_name").value,
+//     //     email: document.getElementById("email").value,
+//     //     //genre: "Jazz"
+//     // });
+// };
+// function fun(){
+// 	console.log("asdfhl");
+// 	    woopra.track("play", {
+//         artist: document.getElementById("art_name").value,
+//         email: document.getElementById("email").value,
+//         //genre: "Jazz"
+//     });
+// };
+</script>
+<!-- End of Woopra Code -->
+</head>
+<body>
+	this is first page 
+	<a href ="{% url 'secondview' %}">link to second page </a>
+	<br>
+	<form method="POST" id="registration" action="{% url 'secondview' %}">
+		{% csrf_token %}
+	Full Name: <input type="text" id="art_name" name="query"><br>
+	Email: <input type="text" id="email" name="checkin"><br>
+	<!-- Password: <input type="password" name="password"><br> -->
+	Secret: <input type="text" name="checkout"><br>
+	<!-- <button id="play-button" name="playbutton" onclick="fun();">play</button> -->
+	<input type = "submit" value = "submit">
+
+</form>
+</body>
+</html>

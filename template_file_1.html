@@ -1,0 +1,120 @@
+<html><head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<style>
+	.hidden_div{
+      -moz-appearance: textfield-multiline;
+      -webkit-appearance: textarea;
+      border: 1px dotted gray;
+      font: medium -moz-fixed;
+      font: -webkit-small-control;
+      height: 28px;
+      overflow: auto;
+      padding: 2px;
+      resize: both;
+      width: 400px;
+  }
+	</style>
+</head>
+<body>
+		<div class="title_div">
+		<div class="hidden_div" contenteditable=""> mal_lux_5n_001</div>  
+		<hr>
+		</div>
+		<div class="hidden_title_div">
+		<div class="hidden_div" contenteditable=""> maldives, maldives, south asia</div>  
+		<hr>
+		</div>	
+		<div class="title_div">
+		<div class="hidden_div" contenteditable=""> maldives beaches</div>  
+		<hr>
+		</div>	
+		<div class="title_div">
+		<div class="hidden_div" contenteditable=""> 5</div>  
+		<hr>
+		</div>	
+		<div class="title_div">
+		<div class="hidden_div" contenteditable=""> LUX</div>  
+		<hr>
+		</div>
+
+<!-- 	<div>
+		<div class="destination_div">
+		<div class="destination"> maldives, maldives, south asia</div>  <button class="edit">edit</button>
+		</div>
+		<div class="hidden_destination_div" hidden=true>
+		<div class="hidden_div" contenteditable> maldives, maldives, south asia</div>  <button class="save" >save </button> <button class="cancel" >cancel </button>
+		</div>
+	</div>
+
+	<div>
+		<div class="title_div">
+		<div class="title"> maldives beaches</div>  <button class="edit">edit</button>
+		</div>
+		<div class="hidden_title_div" hidden=true>
+		<div class="hidden_div" contenteditable> maldives beaches</div>  <button class="save" >save </button> <button class="cancel" >cancel </button>
+		</div>
+	</div>
+
+	<div>
+		<div class="title_div">
+		<div class="title"> 5</div>  <button class="edit">edit</button>
+		</div>
+		<div class="hidden_title_div" hidden=true>
+		<div class="hidden_div" contenteditable> 5</div>  <button class="save" >save </button> <button class="cancel" >cancel </button>
+		</div>
+	</div>
+
+	<div>
+		<div class="title_div">
+		<div class="title"> LUX</div>  <button class="edit">edit</button>
+		</div>
+		<div class="hidden_title_div" hidden=true>
+		<div class="hidden_div" contenteditable> LUX</div>  <button class="save" >save </button> <button class="cancel" >cancel </button>
+		</div>
+	</div> -->
+<button id="pdf">generate pdf </button>
+<!--  -->
+
+<!-- 	<div class='destination'> maldives, maldives, south asia </div> <button onClick="">edit</button>
+	<div class='destination_title'> maldives beaches </div> <button onClick="">edit</button>
+	<div class='duration'> 5 </div> <button onClick="">edit</button>
+	<div class='budget_type'> LUX </div> <button onClick="">edit</button> -->
+	<script>
+	$( document ).ready(function() {
+
+	// $(".edit").click(function(){
+	// 	//console.log("sdfjkl");
+	// 	$(this).parent().hide();
+	// 	$(this).parent().next().show();
+	// });
+	// $(".save").click(function(){
+	// 	//console.log("sdfjkl");
+	// 	//onsole.log($(".title").text());
+	// 	//
+	// 	//console.log($(".title_hidden").text());
+	// 	$(this).parent().prev().children(':first-child').text($(this).prev().text());
+	// 	$(this).parent().hide();
+	// 	$(this).parent().prev().show();
+	// });
+	// $(".cancel").click(function(){
+	// 	//console.log("sdfjkl");
+	// 	$(this).parent().hide();
+	// 	$(this).parent().prev().show();
+	// });
+	$("#pdf").click(function(){
+		var x = "<html>" + $("html").html() + "</html>";	
+		//console.log(x);
+		       $.post( 
+                  "/pdf_generator",
+                  { html: x ,csrfmiddlewaretoken: 'oS5NqXG8csAk5YEfYLaFQBYQExlb31Wb'},
+                  function(data) {
+                     //$('#stage').html(data);
+                     console.log("asdfds")
+                     console.log(data);
+                  }
+               );
+	});	
+});
+	</script>
+
+</body></html>

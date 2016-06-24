@@ -1,0 +1,66 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+</head>
+<body>
+	<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>pkg title</th>
+            <th>duration</th>
+            <th>destination</th>
+            <th > accomodation type </th>
+        </tr>
+    </thead>
+    <tbody>
+    	{% for pkg in pkgs %}
+	        <tr>
+	            <td>{{ pkg.title }}</td>
+	            <td>{{ pkg.duration }}</td>
+	            <td>{{ pkg.destination}}</td>
+	            <td  >{{ pkg.accommodation.accommodation_type }}</td>
+	        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+	$(document).ready( function () {
+$('#table_id').DataTable();
+
+// 		function Package( title, destination, duration, price ) {
+//     this.title = title;
+//     this.destination = destination;
+//     this.duration = duration;
+//     this.price = price
+//     //his._office = office;
+ 
+//     // this.office = function () {
+//     //     return this._office;
+//     // }
+// };
+{% for pkg in pkgs %}
+console.log();
+{% endfor %}
+ 
+// $('#table_id').DataTable( {
+//     data: [
+    
+//         new Employee( "Tiger Nixon", "System Architect", "$3,120", "Edinburgh" ),
+//         //new Employee( "Garrett Winters", "Director", "$5,300", "Edinburgh" )
+
+//     ],
+//     columns: [
+//         { data: 'title' },
+//         { data: 'destination' },
+//         { data: 'duration' },
+//         { data: 'price' }
+//     ]
+// } );
+// 	    
+	} );
+</script>
+</body>
+</html>

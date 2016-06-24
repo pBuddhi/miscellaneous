@@ -1,0 +1,38 @@
+<html>
+<head>
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cloudfront.loggly.com/js/loggly.tracker-2.1.min.js" async></script>
+<script>
+  var _LTracker = _LTracker || [];
+  _LTracker.push({
+    'logglyKey': '7b0c5199-e8bb-4183-be09-09b4a87ce942',
+    'sendConsoleErrors' : true,
+    'tag' : 'loggly-jslogger' 
+  });
+</script>
+<script>
+_LTracker.push('Hello World ok');
+//console.log(_LTracker[0]["logglyKey"]);
+
+
+
+				$.ajax(
+				{
+					url :"logglykey",
+					type : "POST",
+					data : {logglykey:_LTracker[0]["logglyKey"],csrfmiddlewaretoken: '{{ csrf_token }}'},
+					success:function(json){
+						console.log("chal gaya bhai");
+
+						console.log(json);
+
+
+					}
+				});
+
+</script>
+</head>
+<body>
+this is for exceptions
+</body>
+<html>

@@ -1,0 +1,17 @@
+<html>
+	<body>
+		<form action="{% url 'booking_request' %}" method="POST">
+			{% csrf_token %}
+			 guest_name_1 :  <input type="text" name="guest_name_1"> <br>
+			 guest_name_2 : <input type="text" name="guest_name_2"> <br>
+			 phone_num_1  : <input type = "text" name="phone_num_1"> <br>
+			 phone_num_2  : <input type = "text" name="phone_num_2"> <br>
+			 email_id_1   : <input type = "text" name="email_id_1"> <br>
+			 email_id_2   : <input type = "text" name="email_id_2"> <br>
+
+
+
+			 <input type="submit" value="book">
+	</body>
+
+</html>

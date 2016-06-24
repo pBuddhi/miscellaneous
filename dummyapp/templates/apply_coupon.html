@@ -1,0 +1,43 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+<body>
+	price = {{ pkg_quote.price }} <br>
+
+	{{pkg_quote.title}}
+<!-- 	{% if pkg_quote.coupon_code %}
+		<p> price after appliying coupon {{ pkg_quote.price_with_coupon }}
+	{% endif %} -->
+	<div id="after_ajax"></div>
+	{% if not pkg_quote.coupon_code %}
+	
+	<form action="." method="POST">
+		{% csrf_token %}
+
+		<input type="hidden" value="{{ pkg_quote.price }}" id="price" name = "price">
+		coupon code : <input type="text" name="coupon_code" id = "coupon_code">
+		<input type="button" onclick="fun();" value="apply" >
+	{% endif %}
+	<script>
+		function fun(){
+			$.ajax(
+				{
+					url :"/coupon-applied",
+					type : "POST",
+					data : {price:$('#price').val,coupon_code:$('#coupon_code').val,csrfmiddlewaretoken: '{{ csrf_token }}'},
+					success:function(json){
+						//console.log("chal gaya bhai");
+						var price = json["coupon_price"];
+						//console.log(lis);
+						$('#after_ajax').html("<p> price after appliying coupon: "+price+"</p>");
+						// $.each(lis,function(index,value){
+						// 	$('#namelist').append("<option value='"+value+"'>");
+						// });
+					}
+			});
+		}
+	</script>
+
+</body>
+</html>	

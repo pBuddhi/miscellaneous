@@ -1,0 +1,11 @@
+<html>
+<body>
+	{% for pkg in pkgs %}
+	 	<a href="{% url 'itinerary_detail' pkg.id %}"> {{pkg.title}} </a> 
+	 	{% if pkg.is_voucher_exist%}
+	 	  <a href='/site_media/pkg_id_{{pkg.id}}.pdf'>Download pdf</a><br>
+	 	 {% endif %}
+	 	<hr>
+	{% endfor %}
+<body>
+</html>

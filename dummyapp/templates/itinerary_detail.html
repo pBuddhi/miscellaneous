@@ -1,0 +1,142 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<style>
+	.hidden_div{
+      -moz-appearance: textfield-multiline;
+      -webkit-appearance: textarea;
+      border: 1px dotted gray;
+      font: medium -moz-fixed;
+      font: -webkit-small-control;
+      height: 28px;
+      overflow: auto;
+      padding: 2px;
+      resize: both;
+      width: 400px;
+  }
+	</style>
+</head>
+<body>
+		<div class="title_div">
+		<div class="hidden_div" contenteditable> {{pkg.title}}</div>  
+		<hr>
+		</div>
+		<div class="hidden_title_div">
+		<div class="hidden_div" contenteditable> {{pkg.destination}}</div>  
+		<hr>
+		</div>	
+		<div class="title_div">
+		<div class="hidden_div" contenteditable> {{pkg.destination_title}}</div>  
+		<hr>
+		</div>	
+		<div class="title_div">
+		<div class="hidden_div" contenteditable> {{pkg.duration}}</div>  
+		<hr>
+		</div>	
+		<div class="title_div">
+		<div class="hidden_div" contenteditable> {{pkg.budget_type}}</div>  
+		<hr>
+		</div>
+		<img src="http://oceanatravels.com/site_media/img/gallery/masonry/little/img5-vertical.jpg"/><br>
+		<!-- <img src="http://localhost:8000/site_media/shot0001.jpg" alt="Smiley face" height="250" width="120px"> -->
+		<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:440px;width:300px;'><div id='gmap_canvas' style='height:440px;width:300px;'></div><div><small></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(51.5073509,-0.12775829999998223),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(51.5073509,-0.12775829999998223)});infowindow = new google.maps.InfoWindow({content:'<strong>Title</strong><br>London, United Kingdom<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+		<p> {{pkg.id}}</p>
+<!-- 	<div>
+		<div class="destination_div">
+		<div class="destination"> {{pkg.destination}}</div>  <button class="edit">edit</button>
+		</div>
+		<div class="hidden_destination_div" hidden=true>
+		<div class="hidden_div" contenteditable> {{pkg.destination}}</div>  <button class="save" >save </button> <button class="cancel" >cancel </button>
+		</div>
+	</div>
+
+	<div>
+		<div class="title_div">
+		<div class="title"> {{pkg.destination_title}}</div>  <button class="edit">edit</button>
+		</div>
+		<div class="hidden_title_div" hidden=true>
+		<div class="hidden_div" contenteditable> {{pkg.destination_title}}</div>  <button class="save" >save </button> <button class="cancel" >cancel </button>
+		</div>
+	</div>
+
+	<div>
+		<div class="title_div">
+		<div class="title"> {{pkg.duration}}</div>  <button class="edit">edit</button>
+		</div>
+		<div class="hidden_title_div" hidden=true>
+		<div class="hidden_div" contenteditable> {{pkg.duration}}</div>  <button class="save" >save </button> <button class="cancel" >cancel </button>
+		</div>
+	</div>
+
+	<div>
+		<div class="title_div">
+		<div class="title"> {{pkg.budget_type}}</div>  <button class="edit">edit</button>
+		</div>
+		<div class="hidden_title_div" hidden=true>
+		<div class="hidden_div" contenteditable> {{pkg.budget_type}}</div>  <button class="save" >save </button> <button class="cancel" >cancel </button>
+		</div>
+	</div> -->
+
+<!-- <button id="pdf">generate pdf </button> -->
+<!--  -->
+
+<!-- 	<div class='destination'> {{pkg.destination}} </div> <button onClick="">edit</button>
+	<div class='destination_title'> {{pkg.destination_title}} </div> <button onClick="">edit</button>
+	<div class='duration'> {{pkg.duration}} </div> <button onClick="">edit</button>
+	<div class='budget_type'> {{pkg.budget_type}} </div> <button onClick="">edit</button> -->
+
+	<form action="{% url 'pdf_generator' %}" method="POST">
+		{% csrf_token %}
+		<textarea id="html_data" name="html_data" hidden=true></textarea>
+		<input type="text" name="pkg_id" value="{{ pkg.id }}" hidden=true>
+		<button value="export as pdf" id="submit">butt</button>
+	</form>
+<!-- <form>
+	<textarea id=>
+</form> -->
+	<script>
+	$( document ).ready(function() {
+
+		 $("#submit").click(function(){
+		 	var x = "<html>" + $("html").html() + "</html>";
+		 	$("#html_data").val(x);
+		 	$("form").submit();
+        	alert("Submitted");
+    });
+
+	// $(".edit").click(function(){
+	// 	//console.log("sdfjkl");
+	// 	$(this).parent().hide();
+	// 	$(this).parent().next().show();
+	// });
+	// $(".save").click(function(){
+	// 	//console.log("sdfjkl");
+	// 	//onsole.log($(".title").text());
+	// 	//
+	// 	//console.log($(".title_hidden").text());
+	// 	$(this).parent().prev().children(':first-child').text($(this).prev().text());
+	// 	$(this).parent().hide();
+	// 	$(this).parent().prev().show();
+	// });
+	// $(".cancel").click(function(){
+	// 	//console.log("sdfjkl");
+	// 	$(this).parent().hide();
+	// 	$(this).parent().prev().show();
+	// });
+	// $("#pdf").click(function(){
+	// 	var x = "<html>" + $("html").html() + "</html>";	
+	// 	//console.log(x);
+	// 	       $.post( 
+ //                  "/pdf_generator",
+ //                  { html: x ,pkg_id:$("p").val,csrfmiddlewaretoken: '{{ csrf_token }}'},
+ //                  function(data) {
+ //                     //$('#stage').html(data);
+ //                     console.log("asdfds")
+ //                     console.log(data);
+ //                  }
+ //               );
+	// });	
+});
+	</script>
+</body>
+</html>
