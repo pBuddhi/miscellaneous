@@ -21,9 +21,9 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'myhoneymoon',
+        'NAME': 'database name',
         'USER': 'root',
-        'PASSWORD': 'bossisgreat',
+        'PASSWORD': 'database password',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306'
     }  
@@ -184,7 +184,7 @@ from dummyapp.custom_handler import MyCustomAdminEmailHandler
 #           'level':'DEBUG',
 #           'class':'logging.handlers.SysLogHandler',
 #           'formatter': 'simple',
-#           'address':('logs4.papertrailapp.com', 49541)
+#           'address':(copy from your papertrail account)
 #         },
            
 #         'mail_admins': {
@@ -282,7 +282,7 @@ LOGGING = {
 #           'level':'DEBUG',
 #           'class':'logging.handlers.SysLogHandler',
 #           'formatter': 'simple',
-#           'address':('logs4.papertrailapp.com', 49541)
+#           'address':(copy from your papertrail account)
 #         }
 
 #    },
@@ -307,12 +307,12 @@ LOGGING = {
 # EMAIL_PORT = 587
 
 # EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'buddhi9417@gmail.com'
-# EMAIL_HOST_PASSWORD = 'bossisgreat'
+# EMAIL_HOST_USER = 'email'
+# EMAIL_HOST_PASSWORD = 'password'
 
 # EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
 
-# MANDRILL_API_KEY = "KaN3swPW5B3pWB1qNOHQbQ"
+# MANDRILL_API_KEY = "mandrill api key"
 
 SEND_BROKEN_LINK_EMAILS = True
 
@@ -329,4 +329,4 @@ CACHES = {
 }   
 
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
-SENDGRID_API_KEY = "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"
+SENDGRID_API_KEY = "your api key"
