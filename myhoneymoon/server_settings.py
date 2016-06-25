@@ -169,8 +169,8 @@ LOGGING = {
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'varun@tveen.in'
-EMAIL_HOST_PASSWORD = 'django123*'
+EMAIL_HOST_USER = 'your email id'
+EMAIL_HOST_PASSWORD = 'password*'
 EMAIL_PORT = 587
 
 SEND_BROKEN_LINK_EMAILS = True
